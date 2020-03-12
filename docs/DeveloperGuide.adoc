@@ -308,11 +308,21 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 
 |`* * *` |student |add profile picture to added contact |know at a glance who is the person in my contact
 
-|`* * *` |student |edit profile picture to added contact |edit the picture if changes are necessary
+|`* * *` |student |delete profile picture to added contact |
 
-|`* * *` |student |delete profile picture to added contact|
+|`* * *` |student |add category specific remark |filter out a contact’s remark according to type of contact
 
-|`* * *` |student |add category specific description |filter out a contact’s remark according to type of contact
+|`* * *` |student |edit category specific remark |edit the remark if needed
+
+|`* * *` |student | delete category specific remark |category specific remark is not needed anymore
+
+|`* * *` |student |list all my contacts |keep track of my contact list
+
+|`* * *` |student |list my contacts according to category |keep track of my contact list according to different category
+
+|`* * *` |student |undo my command under Address Book feature |
+
+|`* * *` |student |redo my command under Address Book feature |
 
 |`* *` |student |add contact information on CS2103T tutors |contact them for consultations
 
