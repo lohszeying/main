@@ -35,7 +35,8 @@ _[.small]#Fig 1: GUI of NOVA#_
 .  Type the command in the command box and press kbd:[Enter] to execute it.
 .  Some example commands you can try:
 
-* *`nav ab`*: navigates to address book mode
+* *`nav ab`*: navigates to address book mode. +
+You can use the following commands once you are in address book mode:
 ** *`list`* : lists all contacts
 ** *`add`*`n\John Doe p\98765432 e\\john@gmail.com c\classmate` : adds a contact named `John Doe` to the Address Book and
 categorise as classmate
@@ -100,43 +101,41 @@ classmate category.
 ==== Edit Contact: `edit`
 You can edit the contacts that you have added. If the contact you want to edit does not exist, NOVA will let you know.
 
-Format: `edit [index] n\[name] p\[phone number] e\[email address] c\[classmate/teammate]`
+At least one of the optional fields must be provided. Optional fields are `n\[name]`, `p\[phone number]`,
+`e\[email address]` or `c\[classmate/teammate]`.
+
+Format: `edit i\[index] n\[name] p\[phone number] e\[email address] c\[classmate/teammate]`
 
 [NOTE]
 ====
-* Edits the person at the specified `[index]`
-* The index refers to the index number shown in the displayed person list
-* The index **must be a positive integer** 1, 2, 3, …
-* At least one of the optional fields must be provided
-* Optional fields are `n\[name]`, `p\[phone number]`, `e\[email address]` or `c\[classmate/teammate]`
-* Existing values will be updated to the input values
-* `[name]` is not case-sensitive. (E.g. "Jane doe" is the same as "jane Doe") +
+* Edits the person at the specified `[index]` in the displayed person list
+* The `[index]` must be a positive integer. (E.g. 1, 2, 3, ...)
+* `[name]` and `[classmate/teammate]` are not case-sensitive. (E.g. "Jane doe" is the same as "jane Doe") +
 The name you add will be automatically formatted. (E.g. "jane doe" will become "Jane Doe")
-* `[classmate/teammate]` is not case-sensitive. (E.g. "ClasSMate" is the same as "classmate")
 * You can only edit either `classmate` or `teammate` as category
 ====
 
 Example:
 
-* `edit 1 p\88888888` +
+* `edit i\1 p\88888888` +
 Edits the phone number of the first person in your address book to 88888888.
 
-* `edit 3 e\\kly838@hotmail.com` +
+* `edit i\3 e\\kly838@hotmail.com` +
 Edits the email address of the third person in your address book to kly838@hotmail.com.
 
 ==== Delete Contact : `delete`
 You can delete a contact that you have added. If the contact you try to delete does not exist, NOVA will let you know.
 
-Format: `delete [index]`
+Format: `delete i\[index]`
 
 [NOTE]
 ====
-* The index refers to the index number shown in the displayed person list
-* The index **must be a positive integer** 1, 2, 3, …​
+* Deletes the person at the specified `[index]` in the displayed person list
+* The `[index]` must be a positive integer. (E.g. 1, 2, 3, ...)
 ====
 
 Example: +
-`delete 1`
+`delete i\1`
 
 Deletes the first person in your address book.
 
@@ -171,13 +170,13 @@ Lists all your contacts in the `teammate` category.
 
 ==== Find Contact: `find`
 You can find a contact added to the address book easily with a name.
+You can find contact by full name, or by first name or last name only.
 
 Format: `find n\[name]`
 
 [NOTE]
 ====
 * `[name]` is not case-sensitive. (E.g. "Jane doe" is the same as "jane Doe")
-* You can find partial name
 ====
 
 Example:
@@ -190,54 +189,51 @@ Finds all saved contacts named Jane.
 
 ==== Add Picture to Contact: `addpic`
 You can add a profile picture to a contact in your address book.
+If a profile picture had already been added, any newly added profile picture will be replaced
 
-Format: `addpic [index] pa\[path]`
+Format: `addpic i\[index] pa\[path]`
 
 [NOTE]
 ====
-* Adds profile picture of the person at the specified `[index]`
-* The index refers to the index number shown in the displayed person list
-* The index **must be a positive integer** 1, 2, 3, …​
+* Adds profile picture of the person at the specified `[index]` in the displayed person list
+* The `[index]` must be a positive integer. (E.g. 1, 2, 3, ...)
 * Absolute file path is used for `[path]`
-* If a profile picture had already been added, any newly added profile picture will be replaced
 ====
 
 Example: +
-`addpic 2 pa\C:\Users\aloha\Desktop\aloha.png`
+`addpic i\2 pa\C:\Users\aloha\Desktop\aloha.png`
 
 Sets the profile picture of the second contact in your address book to aloha.png.
 
 ==== Delete Picture in Contact: `deletepic`
 You can delete the profile picture of a contact in your address book.
 
-Format: `deletepic [index]`
+Format: `deletepic i\[index]`
 
 [NOTE]
 ====
-* Deletes the picture at the specified `[index]`
-* The index refers to the index number shown in the displayed person list
-* The index **must be a positive integer** 1, 2, 3, …​
+* Deletes the picture at the specified `[index]` in the displayed person list
+* The `[index]` must be a positive integer. (E.g. 1, 2, 3, ...)
 ====
 
 Example: +
-`deletepic 2`
+`deletepic i\2`
 
 Deletes the profile picture of the second contact in your address book.
 
 ==== Add Category Specific Remarks: `remark`
-You can add remarks, that are category specific, to a contact.
+You can add remarks that are category specific, to a contact.
 
-Format: `remark [index] r\[remark]`
+Format: `remark i\[index] r\[remark]`
 
 [NOTE]
 ====
-* Adds category specific remark at the specified `[index]`
-* The index refers to the index number shown in the displayed person list
-* The index **must be a positive integer** 1, 2, 3, …​
+* Adds category specific remark at the specified `[index]` in the displayed person list
+* The `[index]` must be a positive integer. (E.g. 1, 2, 3, ...)
 ====
 
 Example: +
-`remark 2 r\He's a nice teammate`
+`remark i\2 r\He's a nice teammate`
 
 Adds the remark "He's a nice teammate" to the second contact in your address book.
 
