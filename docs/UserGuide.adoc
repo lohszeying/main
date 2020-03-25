@@ -74,10 +74,10 @@ Change the mode of operation to address book.
 The address book feature allows you to keep in contact with your teammates and classmates. Access this mode by entering
 the command `nav ab`.
 
-image::addressbook.png[width="790" align="center"]
+image::addressbooknew.png[width="790" align="center"]
 
 [.text-center]
-_[.small]#Fig 3.2: GUI of NOVA after user typed contact `add n\John Doe p\12345678 c\teammate`#_
+_[.small]#Fig 3.2: GUI of NOVA after user typed contact `add n\John Doe p\12345678 e\\johndoe@hotmail.com c\teammate`#_
 
 ==== Add Contact: `add`
 You can add your classmate or teammate as contact.
