@@ -74,7 +74,6 @@ Change the mode of operation to address book.
 Learn how to work with Address Book feature in NOVA. The address book feature allows you to keep in contact with your teammates and classmates. Access this mode by entering
 the command `nav ab`. Your NOVA should look something like Figure 3.2 below.
 
-//Need to change this
 image::addressbook.png[width="790" align="center"]
 
 [.text-center]
