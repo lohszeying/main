@@ -33,7 +33,7 @@ _[.small]#Fig 1: GUI of NOVA#_
 .  Copy the file to the folder you want to use as the home folder for your NOVA.
 .  Double-click the file to start the app. The GUI should appear in a few seconds.
 .  Type the command in the command box and press kbd:[Enter] to execute it.
-.  Some example commands you can try:
+.  Try out some of these commands to familiarise yourself with this application:
 
 * *`nav ab`*: navigates to address book mode. +
 You can use the following commands once you are in address book mode:
@@ -41,8 +41,6 @@ You can use the following commands once you are in address book mode:
 ** *`add`*`n\John Doe p\98765432 e\\john@gmail.com c\classmate` : adds a contact named `John Doe` to the Address Book and
 categorise as classmate
 * *`exit`* : exits the app
-
-.  Refer to <<Features>> for details of each command.
 
 [[Features]]
 == Features
@@ -55,6 +53,8 @@ NOVA offers a set of common functionalities across all modes.
 ==== Exit : `exit`
 You can exit NOVA with this command. While exiting NOVA, contacts, schedules and
 notes will be saved.
+
+Format: `exit`
 
 ==== Navigation: `nav`
 You can navigate to the desired mode to use its features.
@@ -71,9 +71,10 @@ Example: +
 Change the mode of operation to address book.
 
 === Address Book
-The address book feature allows you to keep in contact with your teammates and classmates. Access this mode by entering
-the command `nav ab`.
+Learn how to work with Address Book feature in NOVA. The address book feature allows you to keep in contact with your teammates and classmates. Access this mode by entering
+the command `nav ab`. Your NOVA should look something like Figure 3.2 below.
 
+//Need to change this
 image::addressbooknew.png[width="790" align="center"]
 
 [.text-center]
@@ -93,63 +94,29 @@ The name you add will be automatically formatted. (E.g. "jane doe" will become "
 ====
 
 Example: +
+Suppose you want to add your classmate named Jane Doe, with phone number 12345678 and email address janedoe@gmail.com
+into NOVA,
+
 `add n\Jane Doe p\12345678 e\\janedoe@gmail.com c\classmate`
 
-Adds a new contact with name Jane Doe, phone number 12345678 and email address janedoe@gmail.com into the
+NOVA will add a new contact named Jane Doe, phone number 12345678 and email address janedoe@gmail.com into the
 classmate category.
-
-==== Edit Contact: `edit`
-You can edit the contacts that you have added. If the contact you want to edit does not exist, NOVA will let you know.
-
-At least one of the optional fields must be provided. Optional fields are `n\[name]`, `p\[phone number]`,
-`e\[email address]` or `c\[classmate/teammate]`.
-
-Format: `edit i\[index] n\[name] p\[phone number] e\[email address] c\[classmate/teammate]`
-
-[NOTE]
-====
-* Edits the person at the specified `[index]` in the displayed person list
-* The `[index]` must be a positive integer. (E.g. 1, 2, 3, ...)
-* `[name]` and `[classmate/teammate]` are not case-sensitive. (E.g. "Jane doe" is the same as "jane Doe") +
-The name you add will be automatically formatted. (E.g. "jane doe" will become "Jane Doe")
-* You can only edit either `classmate` or `teammate` as category
-====
-
-Example:
-
-* `edit i\1 p\88888888` +
-Edits the phone number of the first person in your address book to 88888888.
-
-* `edit i\3 e\\kly838@hotmail.com` +
-Edits the email address of the third person in your address book to kly838@hotmail.com.
-
-==== Delete Contact : `delete`
-You can delete a contact that you have added. If the contact you try to delete does not exist, NOVA will let you know.
-
-Format: `delete i\[index]`
-
-[NOTE]
-====
-* Deletes the person at the specified `[index]` in the displayed person list
-* The `[index]` must be a positive integer. (E.g. 1, 2, 3, ...)
-====
-
-Example: +
-`delete i\1`
-
-Deletes the first person in your address book.
-
-==== Clear all Contacts: `clear`
-You can clear the contacts that you have added in your address book. If there is no contact, NOVA will let you know.
-
-Format: `clear`
 
 ==== List all Contacts: `list`
 You can list the contact's name, phone number and category of all contacts.
 
 Format: `list`
 
-==== List Category Contact: `list [classmate/teammate]`
+Example: +
+Suppose you want to view all your contacts that you have added into Nova,
+
+`list`
+
+Nova will show all your contacts as seen below.
+
+<Insert screenshot here>
+
+==== List Category Contact: `list c\[classmate/teammate]`
 You can list the name and phone number of all the contacts under one of the categories.
 
 Format: `list c\[classmate/teammate]`
@@ -162,15 +129,21 @@ Format: `list c\[classmate/teammate]`
 
 Example:
 
-* `list c\classmate` +
-Lists all your contacts in the `classmate` category.
+* Suppose you want to view all the classmate contacts that you have added into NOVA, +
+`list c\classmate`
++
+Nova will lists all your contacts in the `classmate` category as seen below. +
+<Insert screenshot here>
 
-* `list c\teammate` +
-Lists all your contacts in the `teammate` category.
+* Suppose you want to view all the teammate contacts that you have added into NOVA, +
+`list c\teammate`
++
+Nova will lists all your contacts in the `teammate` category as seen below. +
+<Insert screenshot here>
 
 ==== Find Contact: `find`
 You can find a contact added to the address book easily with a name.
-You can find contact by full name, or by first name or last name only.
+You are able to find contact by full name, or by first name or last name only.
 
 Format: `find n\[name]`
 
@@ -181,45 +154,40 @@ Format: `find n\[name]`
 
 Example:
 
-* `find n\Jane doe` +
-Finds a saved contact named Jane Doe.
+* Suppose you want to find Jane doe within NOVA, +
+`find n\Jane doe`
++
+Nova will find and list saved contacts named Jane Doe.
 
-* `find n\Jane` +
-Finds all saved contacts named Jane.
+* Suppose you want to find Jane within NOVA, +
+`find n\Jane`
++
+Nova will find and list saved contacts named Jane.
 
-==== Add Picture to Contact: `addpic`
-You can add a profile picture to a contact in your address book.
-If a profile picture had already been added, any newly added profile picture will be replaced
+==== Edit Contact: `edit`
+You can edit the contacts that you have added. If the contact you want to edit does not exist, NOVA will let you know.
 
-Format: `addpic i\[index] pa\[path]`
+At least one of the optional fields must be provided. Optional fields are `n\[name]`, `p\[phone number]`,
+`e\[email address]` or `c\[classmate/teammate]`.
 
-[NOTE]
-====
-* Adds profile picture of the person at the specified `[index]` in the displayed person list
-* The `[index]` must be a positive integer. (E.g. 1, 2, 3, ...)
-* Absolute file path is used for `[path]`
-====
-
-Example: +
-`addpic i\2 pa\C:\Users\aloha\Desktop\aloha.png`
-
-Sets the profile picture of the second contact in your address book to aloha.png.
-
-==== Delete Picture in Contact: `deletepic`
-You can delete the profile picture of a contact in your address book.
-
-Format: `deletepic i\[index]`
+Format: `edit i\[index] n\[name] p\[phone number] e\[email address] c\[classmate/teammate]`
 
 [NOTE]
 ====
-* Deletes the picture at the specified `[index]` in the displayed person list
+* Edits the contact at the specified `[index]` in the displayed contact list
 * The `[index]` must be a positive integer. (E.g. 1, 2, 3, ...)
+* `[name]` and `[classmate/teammate]` are not case-sensitive. (E.g. "Jane doe" is the same as "jane Doe") +
+The name you add will be automatically formatted. (E.g. "jane doe" will become "Jane Doe")
+* You can only edit either `classmate` or `teammate` as category
 ====
 
 Example: +
-`deletepic i\2`
+Suppose you want to edit the first contact's phone number in your address book after using `list`,
+`list c\[classmate/teammate]` or `find` command,
 
-Deletes the profile picture of the second contact in your address book.
+`edit i\1 p\88888888`
+
+NOVA will edit the phone number of the first contact in your address book to 88888888.
 
 ==== Add Category Specific Remarks: `remark`
 You can add remarks that are category specific, to a contact.
@@ -228,31 +196,66 @@ Format: `remark i\[index] r\[remark]`
 
 [NOTE]
 ====
-* Adds category specific remark at the specified `[index]` in the displayed person list
+* Adds category specific remark at the specified `[index]` in the displayed contact list
+* The `[index]` must be a positive integer. (E.g. 1, 2, 3, ...)
+* To remove any remarks that you have added for a contact, use `remark i\[index] r\`
+====
+
+Example: +
+Suppose you want add remark to the first contact in your address book after using `list`,
+`list c\[classmate/teammate]` or `find` command,
+
+`remark i\1 r\He's a nice teammate`
+
+NOVA will add the remark "He's a nice teammate" to the first contact in your address book.
+
+==== Delete Contact: `delete`
+You can delete a contact that you have added. If the contact you try to delete does not exist, NOVA will let you know.
+
+Format: `delete i\[index]`
+
+[NOTE]
+====
+* Deletes the contact at the specified `[index]` in the displayed contact list
 * The `[index]` must be a positive integer. (E.g. 1, 2, 3, ...)
 ====
 
 Example: +
-`remark i\2 r\He's a nice teammate`
+Suppose you want to delete the first contact in your address book after using `list`,
+`list c\[classmate/teammate]` or `find` command,
 
-Adds the remark "He's a nice teammate" to the second contact in your address book.
+`delete i\1`
+
+NOVA will delete the first contact in your address book.
+
+==== Clear all Contacts: `clear`
+You can clear all the contacts that you have added in your address book.
+
+Format: `clear`
+
+[WARNING]
+Using `clear` command will **delete all** the contacts that you have saved.
 
 ==== Undo Command: `undo`
-You can undo a command that you have entered.
+You can undo a command that you have entered. If you cannot undo, NOVA will let you know.
 
 Format: `undo`
 
+Example: +
+Suppose you accidentally used `clear` command and deleted all your contacts in NOVA,
+
+`undo`
+
+After using `undo`, you can get back all your saved contacts that you accidentally deleted.
+
 ==== Redo Command: `redo`
 
-You can redo undone commands.
+You can redo undone commands. To use `redo`, you must first have used `undo`. If you cannot redo, NOVA will let you know.
 
 Format: `redo`
 
 [WARNING]
 After you successfully enter a new command, you will lose all the undone commands.
-
-==== Short Form [v2.0]:
-You can use the short form of your command.
 
 === Manage Events
 You can track events by adding them into the organizer and manage them easily. Access this mode by entering
