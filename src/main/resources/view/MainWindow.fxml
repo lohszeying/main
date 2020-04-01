@@ -22,11 +22,11 @@
             </stylesheets>
             <AnchorPane fx:id="anchorPane" prefHeight="349.0" prefWidth="458.0" style="-fx-background-color: white;">
                 <children>
-                    <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" layoutX="252.0" prefHeight="316.0" prefWidth="206.0" style="-fx-background-color: #FFB6C1;" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" hvalue="1.0" layoutX="252.0" prefHeight="316.0" prefWidth="206.0" style="-fx-background-color: #FFB6C1;" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                         <content>
 
                             <VBox fx:id="resultHolder" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFB6C1;">
-                                <VBox fx:id="resultDisplayPlaceholder" prefHeight="149.0" prefWidth="104.0" VBox.vgrow="ALWAYS" />
+                                <VBox fx:id="resultDisplayPlaceholder" prefWidth="104.0" />
                             </VBox>
                         </content>
                     </ScrollPane>
@@ -42,7 +42,7 @@
                         </content></ScrollPane>
                     <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="265.0" prefHeight="265.0" prefWidth="254.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="0.0">
                   <content>
-                     <VBox fx:id="helpHolder" prefHeight="265.0" prefWidth="254.0" VBox.vgrow="ALWAYS"/>
+                     <VBox fx:id="helpHolder" prefHeight="265.0" prefWidth="254.0" VBox.vgrow="ALWAYS" />
                   </content>
                     </ScrollPane>
                 </children>

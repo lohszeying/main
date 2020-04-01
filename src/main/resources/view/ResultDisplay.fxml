@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
 
-<StackPane fx:id="placeHolder" styleClass="pane-with-border" xmlns="http://javafx.com/javafx/8"
-    xmlns:fx="http://javafx.com/fxml/1" maxHeight="100" minHeight="100" >
-  <TextArea fx:id="resultDisplay" editable="false" styleClass="result-display"/>
-</StackPane>
+<HBox fx:id="resutlDisplay" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="resultDisplay" alignment="TOP_LEFT" prefWidth="550.0" text="Label" wrapText="true">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets bottom="20.0" left="15.0" top="10.0" />
+         </padding>
+      </Label>
+   </children>
+</HBox>
