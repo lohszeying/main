@@ -75,10 +75,10 @@ Learn how to work with Address Book feature in NOVA. The address book feature al
 the command `nav ab`. Your NOVA should look something like Figure 3.2 below.
 
 //Need to change this
-image::addressbooknew.png[width="790" align="center"]
+image::addressbook.png[width="790" align="center"]
 
 [.text-center]
-_[.small]#Fig 3.2: GUI of NOVA after user typed contact `add n\John Doe p\12345678 e\\johndoe@hotmail.com c\teammate`#_
+_[.small]#Fig 3.2: GUI of NOVA after user typed contact `nav ab`#_
 
 ==== Add Contact: `add`
 You can add your classmate or teammate as contact.
@@ -112,9 +112,7 @@ Suppose you want to view all your contacts that you have added into Nova,
 
 `list`
 
-Nova will show all your contacts as seen below.
-
-<Insert screenshot here>
+Nova will show all your contacts.
 
 ==== List Category Contact: `list c\[classmate/teammate]`
 You can list the name and phone number of all the contacts under one of the categories.
@@ -132,14 +130,12 @@ Example:
 * Suppose you want to view all the classmate contacts that you have added into NOVA, +
 `list c\classmate`
 +
-Nova will lists all your contacts in the `classmate` category as seen below. +
-<Insert screenshot here>
+Nova will lists all your contacts in the `classmate` category as seen below.
 
 * Suppose you want to view all the teammate contacts that you have added into NOVA, +
 `list c\teammate`
 +
-Nova will lists all your contacts in the `teammate` category as seen below. +
-<Insert screenshot here>
+Nova will lists all your contacts in the `teammate` category as seen below.
 
 ==== Find Contact: `find`
 You can find a contact added to the address book easily with a name.
