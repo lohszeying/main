@@ -2,7 +2,6 @@ package seedu.nova;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.time.LocalDate;
 import java.util.Optional;
 import java.util.logging.Logger;
 
@@ -17,17 +16,15 @@ import seedu.nova.commons.util.ConfigUtil;
 import seedu.nova.commons.util.StringUtil;
 import seedu.nova.logic.Logic;
 import seedu.nova.logic.LogicManager;
-import seedu.nova.model.AddressBook;
 import seedu.nova.model.Model;
 import seedu.nova.model.ModelManager;
-import seedu.nova.model.ReadOnlyAddressBook;
+import seedu.nova.model.Nova;
 import seedu.nova.model.ReadOnlyUserPrefs;
-import seedu.nova.model.Schedule;
 import seedu.nova.model.UserPrefs;
 import seedu.nova.model.util.SampleDataUtil;
-import seedu.nova.storage.AddressBookStorage;
-import seedu.nova.storage.JsonAddressBookStorage;
+import seedu.nova.storage.JsonNovaStorage;
 import seedu.nova.storage.JsonUserPrefsStorage;
+import seedu.nova.storage.NovaStorage;
 import seedu.nova.storage.Storage;
 import seedu.nova.storage.StorageManager;
 import seedu.nova.storage.UserPrefsStorage;
@@ -52,7 +49,7 @@ public class MainApp extends Application {
 
     @Override
     public void init() throws Exception {
-        logger.info("=============================[ Initializing AddressBook ]===========================");
+        logger.info("=============================[ Initializing NOVA ]===========================");
         super.init();
 
         AppParameters appParameters = AppParameters.parse(getParameters());
@@ -60,8 +57,8 @@ public class MainApp extends Application {
 
         UserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(config.getUserPrefsFilePath());
         UserPrefs userPrefs = initPrefs(userPrefsStorage);
-        AddressBookStorage addressBookStorage = new JsonAddressBookStorage(userPrefs.getAddressBookFilePath());
-        storage = new StorageManager(addressBookStorage, userPrefsStorage);
+        NovaStorage novaStorage = new JsonNovaStorage(userPrefs.getNovaFilePath());
+        storage = new StorageManager(novaStorage, userPrefsStorage);
 
         initLogging(config);
 
@@ -74,28 +71,27 @@ public class MainApp extends Application {
 
     /**
      * Returns a {@code ModelManager} with the data from {@code storage}'s nova book and {@code userPrefs}. <br>
-     * The data from the sample nova book will be used instead if {@code storage}'s nova book is not found,
-     * or an empty nova book will be used instead if errors occur when reading {@code storage}'s nova book.
+     * The data from the sample nova data will be used instead if {@code storage}'s nova data is not found,
+     * or an empty nova will be used instead if errors occur when reading {@code storage}'s nova data.
      */
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
-        Optional<ReadOnlyAddressBook> addressBookOptional;
-        ReadOnlyAddressBook initialData;
+        Optional<Nova> novaOptional;
+        Nova initialData;
         try {
-            addressBookOptional = storage.readAddressBook();
-            if (!addressBookOptional.isPresent()) {
+            novaOptional = storage.readNova();
+            if (!novaOptional.isPresent()) {
                 logger.info("Data file not found. Will be starting with a sample AddressBook");
             }
-            initialData = addressBookOptional.orElseGet(SampleDataUtil::getSampleAddressBook);
+            initialData = novaOptional.orElseGet(SampleDataUtil::getSampleNova);
         } catch (DataConversionException e) {
             logger.warning("Data file not in the correct format. Will be starting with an empty AddressBook");
-            initialData = new AddressBook();
+            initialData = new Nova();
         } catch (IOException e) {
             logger.warning("Problem while reading from the file. Will be starting with an empty AddressBook");
-            initialData = new AddressBook();
+            initialData = new Nova();
         }
 
-        return new ModelManager(initialData, userPrefs, new Schedule(LocalDate.of(2020, 1, 13), LocalDate.of(2020, 5,
-                3)));
+        return new ModelManager(initialData, userPrefs);
     }
 
     private void initLogging(Config config) {
@@ -172,13 +168,13 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        logger.info("Starting AddressBook " + MainApp.VERSION);
+        logger.info("Starting NOVA " + MainApp.VERSION);
         ui.start(primaryStage);
     }
 
     @Override
     public void stop() {
-        logger.info("============================ [ Stopping Address Book ] =============================");
+        logger.info("============================ [ Stopping NOVA ] =============================");
         try {
             storage.saveUserPrefs(model.getUserPrefs());
         } catch (IOException e) {

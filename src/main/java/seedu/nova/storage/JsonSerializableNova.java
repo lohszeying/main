@@ -10,34 +10,53 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 
 import seedu.nova.commons.exceptions.IllegalValueException;
 import seedu.nova.model.AddressBook;
-import seedu.nova.model.ReadOnlyAddressBook;
+import seedu.nova.model.Nova;
 import seedu.nova.model.person.Person;
 
 /**
  * An Immutable AddressBook that is serializable to JSON format.
  */
-@JsonRootName(value = "addressbook")
-class JsonSerializableAddressBook {
+@JsonRootName(value = "nova")
+class JsonSerializableNova {
 
     public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate person(s).";
 
     private final List<JsonAdaptedPerson> persons = new ArrayList<>();
 
+    //add your list of adapted class objects here
+
     /**
-     * Constructs a {@code JsonSerializableAddressBook} with the given persons.
+     * Constructs a {@code JsonSerializableNova} with the given persons.
      */
     @JsonCreator
-    public JsonSerializableAddressBook(@JsonProperty("persons") List<JsonAdaptedPerson> persons) {
+    public JsonSerializableNova(@JsonProperty("persons") List<JsonAdaptedPerson> persons) {
         this.persons.addAll(persons);
     }
 
     /**
      * Converts a given {@code ReadOnlyAddressBook} into this class for Jackson use.
      *
-     * @param source future changes to this will not affect the created {@code JsonSerializableAddressBook}.
+     * @param source future changes to this will not affect the created {@code JsonSerializableNova}.
      */
-    public JsonSerializableAddressBook(ReadOnlyAddressBook source) {
-        persons.addAll(source.getPersonList().stream().map(JsonAdaptedPerson::new).collect(Collectors.toList()));
+    public JsonSerializableNova(Nova source) {
+        persons.addAll(source.getAddressBookNova().getPersonList().stream()
+                .map(JsonAdaptedPerson::new).collect(Collectors.toList()));
+    }
+
+    /**
+     * Javadoc
+     * @return javadoc
+     * @throws IllegalValueException
+     */
+    public Nova toModelType() throws IllegalValueException {
+        Nova nova = new Nova();
+        AddressBook ab = toModelTypeAb();
+        //Call other toModelType();
+
+        nova.setAddressBookNova(ab);
+        //call other set methods
+
+        return nova;
     }
 
     /**
@@ -45,7 +64,7 @@ class JsonSerializableAddressBook {
      *
      * @throws IllegalValueException if there were any data constraints violated.
      */
-    public AddressBook toModelType() throws IllegalValueException {
+    public AddressBook toModelTypeAb() throws IllegalValueException {
         AddressBook addressBook = new AddressBook();
         for (JsonAdaptedPerson jsonAdaptedPerson : persons) {
             Person person = jsonAdaptedPerson.toModelType();
@@ -56,5 +75,7 @@ class JsonSerializableAddressBook {
         }
         return addressBook;
     }
+
+    //Implement your own classes toModelType methods
 
 }
