@@ -20,27 +20,54 @@ By: `Team CS2103T-F10-3`      Since: `Mar 2020`      Licence: `MIT`
 
 == Introduction
 
-Next-gen Organizing Virtual Assistant (NOVA) is a one-stop desktop application for CS2103T students to manage all CS2103T related activities, from studying to planning project meetings. NOVA is designed for users who prefer to use the Command Line Interface (CLI).
+Welcome to the user guide (UG) for Next-gen Organizing Virtual Assistant (NOVA). NOVA is a one-stop desktop
+application for CS2103T students to manage all CS2103T related activities, from studying to planning project meetings.
+NOVA is designed for users who prefer to interact with programs through typing.
 
 image::GUI_v2.0.png[width="790" align="center"]
 [.text-center]
 _[.small]#Fig 1: GUI of NOVA#_
 
-== Quick Start
+== About
 
-.  Ensure you have Java `11` or above installed in your Computer.
-.  Download the latest `nova.jar` link:{repoURL}/releases[here].
+This UG is a reference guide to help you use NOVA. This document contains a quick start section to get you up and
+running soon.
+
+There is an entire section dedicated to how to use any particular feature in NOVA. Examples are provided for your
+better understanding. We have also provided a summary of commands for your quick reference. Should you face any
+problems, take a look at the FAQ section. There is a glossary at the end if you need clarification on a term that you
+do not understand.
+
+== Notations
+In this guide, you'll be seeing the following markup being used.
+
+[NOTE]
+This icon indicates details that could help you better understand how to use NOVA.
+
+[WARNING]
+This icon indicates actions that could negatively affect your experience while using NOVA.
+
+`Commands` and `input fields` are highlighted.
+
+== Quick Start
+Here are some steps to get you started:
+
+.  Ensure you have Java *11* or above installed in your Computer.
+.  Download the latest *nova.jar* link:{repoURL}/releases[here].
 .  Copy the file to the folder you want to use as the home folder for your NOVA.
 .  Double-click the file to start the app. The GUI should appear in a few seconds.
 .  Type the command in the command box and press kbd:[Enter] to execute it.
-.  Try out some of these commands to familiarise yourself with this application:
+.  Try the following commands to get you warmed up:
 
 * *`nav ab`*: navigates to address book mode. +
 You can use the following commands once you are in address book mode:
 ** *`list`* : lists all contacts
-** *`add`*`n\John Doe p\98765432 e\\john@gmail.com c\classmate` : adds a contact named `John Doe` to the Address Book and
+** *`add`*`n\John Doe p\98765432 e\\john@gmail.com c\classmate` : adds a contact named *John Doe* to the Address Book
+ and
 categorise as classmate
 * *`exit`* : exits the app
+
+Refer to <<Features>> for details of each command.
 
 [[Features]]
 == Features
@@ -48,13 +75,14 @@ Features are grouped together in modes of operation. There is a set of common co
 there is also a set of commands for you to use and get things done.
 
 === Common
-NOVA offers a set of common functionalities across all modes.
+NOVA offers a set of common functionalities across all modes. These commands can be executed within any mode in NOVA.
 
 ==== Exit : `exit`
 You can exit NOVA with this command. While exiting NOVA, contacts, schedules and
 notes will be saved.
 
-Format: `exit`
+Format: +
+`exit`
 
 ==== Navigation: `nav`
 You can navigate to the desired mode to use its features.
@@ -242,15 +270,14 @@ Format: `redo`
 [WARNING]
 After you successfully enter a new command, you will lose all the undone commands.
 
-=== Manage Events
-You can track events by adding them into the organizer and manage them easily. Access this mode by entering
-the command `nav schedule`.
+=== Schedule
+Learn how to work with the schedule feature in NOVA. You can track important events by adding them into the schedule
+and manage them easily  You need to be in schedule mode. Enter the schedule mode by entering the command `nav schedule`.
+Your NOVA should look something like Figure 5.3 below.
 
 image::ManageEventsUI.png[width="790" align="center"]
 [.text-center]
-_[.small]#Figure 3.3: GUI of NOVA after user typed +
-`meeting d\CS2103T website set-up v\COM1 t\2020-02-20 14:00 15:00`#_
-
+_[.small]#Figure 5.3: GUI of NOVA after user typed `nav schedule`#_
 
 ==== Add a Meeting: `meeting`
 You can add a meeting as one of your events.
@@ -366,14 +393,6 @@ Example: +
 
 Your second event on 2nd March 2020 will be repeated for the next 3 weeks.
 
-=== Using Schedule
-Learn how to work with the schedule you have created in NOVA. You need to be in schedule mode. Enter the schedule
-mode by entering the command `nav schedule`.
-
-image::GUI_UsingSchedule.png[width = "790" align="center"]
-[.text-center]
-_[.small]#Fig 3.4: GUI of NOVA after entering the command `freeslot 2020-03-02`.#_
-
 ==== View Schedule of a Day: `view`
 You can view the schedule of a specified day.
 
@@ -381,9 +400,13 @@ Format: +
 `view t\[YYYY-MM-DD]`
 
 Example: +
+Suppose you want to check out what events are happening on 29 Feb, +
+ +
 `view t\2020-02-29`
 
-Shows your schedule on 29 Feb 2020
+NOVA will show your schedule on 29 Feb 2020 as seen below.
+
+<Insert screenshot here>
 
 ==== View Schedule of a Week: `view`
 You can view the schedule of a specified week.
@@ -395,31 +418,13 @@ Format: +
 `[week #]` must be a positive integer. (E.g. 1, 2, 3, ...)
 
 Example: +
+Suppose you are interested in what is going to happen in week 6 of the semester, +
+ +
 `view week i\6`
 
-Shows your schedule of week 6 of the semester.
+NOVA will show your schedule in week 6 of the semester as seen below.
 
-==== View Schedule of a Month [v2.0]: `view`
-You can view the schedule of a specified month.
-
-Format: +
-`view t\[MMM]`
-
-[NOTE]
-`[MMM]` is not case sensitive. (JAN is the same as jan)
-
-Example: +
-`view t\mar`
-
-Shows you a list of events in March.
-
-==== View Timetable: `view`
-You can view the timetable that you have created.
-
-Format: +
-`view timetable`
-
-Shows you your timetable.
+<Insert screenshot>
 
 ==== Find Free Slots: `freeslot`
 You can find free slots on a day easily within your schedule without going through your schedule.
@@ -431,17 +436,6 @@ Example: +
 `freeslot t\2020-02-29`
 
 Finds the free slots on 29 Feb 2020.
-
-==== Set Reminder: `reminder`
-You can set a reminder for an event so that you would not forget.
-
-Format: +
-`reminder d\[decription] t\[YYYY-MM-DD]`
-
-Example: +
-`reminder d\project meeting t\2020-03-02`
-
-Set a reminder for the project meeting on 2 Mar 2020.
 
 === Daily Study Planner
 You can use it to create study-events automatically based on the current schedule and study plan.
@@ -603,6 +597,8 @@ Example: +
 `delete p\IP i\3`
 
 Deletes task 3 of IP in progress tracker.
+
+== Command Summary
 
 == FAQ
 
