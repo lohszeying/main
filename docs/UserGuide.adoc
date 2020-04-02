@@ -106,13 +106,6 @@ You can list the contact's name, phone number and category of all contacts.
 
 Format: `list`
 
-Example: +
-Suppose you want to view all your contacts that you have added into Nova,
-
-`list`
-
-Nova will show all your contacts.
-
 ==== List Category Contact: `list c\[classmate/teammate]`
 You can list the name and phone number of all the contacts under one of the categories.
 
@@ -126,15 +119,17 @@ Format: `list c\[classmate/teammate]`
 
 Example:
 
-* Suppose you want to view all the classmate contacts that you have added into NOVA, +
+* Suppose you want to view all the classmate contacts that you have added into NOVA,
++
 `list c\classmate`
 +
-Nova will lists all your contacts in the `classmate` category as seen below.
+NOVA will lists all your contacts in the `classmate` category as seen below.
 
-* Suppose you want to view all the teammate contacts that you have added into NOVA, +
+* Suppose you want to view all the teammate contacts that you have added into NOVA,
++
 `list c\teammate`
 +
-Nova will lists all your contacts in the `teammate` category as seen below.
+NOVA will lists all your contacts in the `teammate` category as seen below.
 
 ==== Find Contact: `find`
 You can find a contact added to the address book easily with a name.
@@ -149,15 +144,17 @@ Format: `find n\[name]`
 
 Example:
 
-* Suppose you want to find Jane doe within NOVA, +
+* Suppose you want to find Jane doe within NOVA,
++
 `find n\Jane doe`
 +
-Nova will find and list saved contacts named Jane Doe.
+NOVA will find and list saved contacts named Jane Doe.
 
-* Suppose you want to find Jane within NOVA, +
+* Suppose you want to find Jane within NOVA,
++
 `find n\Jane`
 +
-Nova will find and list saved contacts named Jane.
+NOVA will find and list saved contacts named Jane.
 
 ==== Edit Contact: `edit`
 You can edit the contacts that you have added. If the contact you want to edit does not exist, NOVA will let you know.
@@ -171,8 +168,8 @@ Format: `edit i\[index] n\[name] p\[phone number] e\[email address] c\[classmate
 ====
 * Edits the contact at the specified `[index]` in the displayed contact list
 * The `[index]` must be a positive integer. (E.g. 1, 2, 3, ...)
-* `[name]` and `[classmate/teammate]` are not case-sensitive. (E.g. "Jane doe" is the same as "jane Doe") +
-The name you add will be automatically formatted. (E.g. "jane doe" will become "Jane Doe")
+* `[name]` and `[classmate/teammate]` are not case-sensitive. (E.g. "Jane doe" is the same as "jane Doe")
+* The name you add will be automatically formatted. (E.g. "jane doe" will become "Jane Doe")
 * You can only edit either `classmate` or `teammate` as category
 ====
 
@@ -235,13 +232,6 @@ Using `clear` command will **delete all** the contacts that you have saved.
 You can undo a command that you have entered. If you cannot undo, NOVA will let you know.
 
 Format: `undo`
-
-Example: +
-Suppose you accidentally used `clear` command and deleted all your contacts in NOVA,
-
-`undo`
-
-After using `undo`, you can get back all your saved contacts that you accidentally deleted.
 
 ==== Redo Command: `redo`
 
